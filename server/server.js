@@ -8,7 +8,8 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('Hello from express backend!');
+    res.send(`This is the start of my MyGas project!
+        There will be many updates coming soon.`);
 });
 
 app.listen(PORT, () => {
