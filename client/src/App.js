@@ -26,7 +26,7 @@ function App() {
   const [message, setMessage] = useState('Loading...');
 
   useEffect(() => {
-    fetch('http://localhost:5000/')
+    fetch('/api')
     .then(res => res.text())
     .then(data => setMessage(data));
   }, []);
