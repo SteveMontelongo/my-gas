@@ -1,40 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
 
-import {useEffect, useState} from 'react';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import Dashboard from './pages/Dashboard';
+
 
 function App() {
-  // return (
-  //   <div className="App">
-  //     <header className="App-header">
-  //       <img src={logo} className="App-logo" alt="logo" />
-  //       <p>
-  //         Edit <code>src/App.js</code> and save to reload.
-  //       </p>
-  //       <a
-  //         className="App-link"
-  //         href="https://reactjs.org"
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //       >
-  //         Learn React
-  //       </a>
-  //     </header>
-  //   </div>
-  // );
-
-  const [message, setMessage] = useState('Loading...');
-
-  useEffect(() => {
-    fetch('/api')
-    .then(res => res.text())
-    .then(data => setMessage(data));
-  }, []);
-
-  return(
-    <div>
-      <h1>{message}</h1>
-    </div>
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<SignIn/>}/>
+        <Route path="/signup" element={<SignUp/>} />
+        <Route path="/dashboard" element={<Dashboard/>} />
+      </Routes>
+    </Router>
   );
 }
 
